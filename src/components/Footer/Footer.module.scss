@@ -1,33 +1,28 @@
+@import '../../styles/mixins.scss';
+
 .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex-layout(column, center, center);
   width: 100%;
   padding: 30px 20px;
   height: 283px;
   text-align: center;
 
-  @media (min-width: 768px) {
+  @include responsive(768px) {
     height: 84px;
-    flex-direction: row;
-    justify-content: flex-start;
+    @include flex-layout(row, flex-start, center);
     text-align: left;
   }
 }
 
 .list {
   list-style: none;
-  display: flex;
+  @include flex-layout(column, center, center);
   gap: 10px;
-  flex-direction: column;
   order: 2;
-  align-items: center;
 
-  @media (min-width: 768px) {
-    flex-direction: row;
+  @include responsive(768px) {
+    @include flex-layout(row, flex-start, flex-start);
     order: 1;
-    align-items: flex-start;
   }
 
   li {
@@ -44,7 +39,7 @@
   order: 1;
   margin-top: 30px;
 
-  @media (min-width: 768px) {
+  @include responsive(768px) {
     order: -1;
     margin-top: 0;
   }

@@ -1,0 +1,50 @@
+@mixin theme-variables($bg, $text, $border, $date, $blog, $pagination-base, $pagination-hover-bg, $pagination-hover-text) {
+  --background-color: #{$bg};
+  --text-color: #{$text};
+  --border-color: #{$border};
+  --date-color: #{$date};
+  --blog-post-color: #{$blog};
+  --pagination-base: #{$pagination-base};
+  --pagination-hover-bg: #{$pagination-hover-bg};
+  --pagination-hover-text: #{$pagination-hover-text};
+}
+
+@mixin responsive-font-size($mobile, $tablet, $desktop) {
+  font-size: $mobile;
+
+  @media (min-width: 768px) {
+    font-size: $tablet;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: $desktop;
+  }
+}
+
+@mixin responsive-grid($mobile: 1, $tablet: 2, $desktop: 3) {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat($mobile, 1fr);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat($tablet, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat($desktop, 1fr);
+  }
+}
+
+@mixin flex-layout($direction: row, $justify: flex-start, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin responsive($breakpoint) {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+  
