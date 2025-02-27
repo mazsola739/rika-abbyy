@@ -1,0 +1,84 @@
+.pagination-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.page-button {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pagination-container ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 2px;
+}
+
+.pagination-container li {
+  list-style: none;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--pagination-base, inherit);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    background-color: var(--pagination-hover-bg);
+    color: var(--pagination-hover-text);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 768px) {
+  .pagination-container ul {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;
+    justify-items: center;
+  }
+
+  .pagination-container li:first-child {
+    grid-row: 1;
+  }
+
+  .pagination-container li:nth-child(n + 2):not(:last-child) {
+    grid-row: 2;
+  }
+
+  .pagination-container li:last-child {
+    grid-row: 3;
+  }
+}
+
+@media (min-width: 769px) {
+  .pagination-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .pagination-container ul {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .pagination-container li:first-child {
+    margin-right: auto;
+  }
+
+  .pagination-container li:last-child {
+    margin-left: auto;
+  }
+}

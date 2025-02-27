@@ -1,0 +1,35 @@
+@import '../../styles/variables.scss';
+
+@mixin tag-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  height: 24px;
+  padding: 2px 10px;
+  border-radius: 16px;
+  margin-right: 5px;
+  font-size: $font-size-tag;
+  font-weight: 500;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  white-space: nowrap; 
+}
+
+.tag {
+  @include tag-style(#e0e0e0, #000000);
+}
+
+@each $tag, $colors in (
+  tech: ($tag-blue-bg-color, $tag-blue-text-color),
+  ai: ($tag-purple-bg-color, $tag-purple-text-color),
+  web-dev: ($tag-green-bg-color, $tag-green-text-color),
+  react: ($tag-orange-bg-color, $tag-orange-text-color),
+  nextjs: ($tag-red-bg-color, $tag-red-text-color),
+  typescript: ($tag-pink-bg-color, $tag-pink-text-color),
+  design: ($tag-dark-blue-bg-color, $tag-dark-blue-text-color),
+  saas: ($tag-green-bg-color, $tag-green-text-color)
+) {
+  .tag-#{$tag} {
+    @include tag-style(nth($colors, 1), nth($colors, 2));
+  }
+}
