@@ -1,4 +1,4 @@
-@import '../../styles/mixins.scss';
+@use '../../styles/index' as *;
 
 .footer {
   @include flex-layout(column, center, center);

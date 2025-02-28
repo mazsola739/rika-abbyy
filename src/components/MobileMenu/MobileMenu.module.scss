@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@use '../../styles/index' as *;
 
 .mobile-menu {
   position: fixed;
